@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20230920 09:18:30.289" rpa="false" schemaversion="4">
+<suite id="s1" name="Adicionar" source="C:\Users\vinso\workspace\Project-Orange\tests\Admin\adicionar.robot">
+<test id="s1-t1" name="Cenário 02 - Adicionar um usuário inválido" line="18">
+<kw name="Abrir navegador" library="kw_base" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230920 09:18:33.689" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20230920 09:18:33.689" endtime="20230920 09:18:38.369"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230920 09:18:38.369" endtime="20230920 09:18:38.484"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:33.689" endtime="20230920 09:18:38.484"/>
+</kw>
+<kw name="Given que o usuário esteja logado no sistema como admin" library="pg_Adicionar">
+<kw name="Logged in user as administrador" library="kw_base">
+<kw name="Given que o usuário deseja realizar login no site" library="pg_Login">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=${pg_login.btn_login}</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:38.486" endtime="20230920 09:18:38.958"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:38.485" endtime="20230920 09:18:38.958"/>
+</kw>
+<kw name="When ele preenche os campos de usuário e senha válidos" library="pg_Login">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css=${pg_login.input_username}</arg>
+<arg>${user_admin}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:38.959" level="INFO">Typing text 'admin' into text field 'css=input[name="username"]'.</msg>
+<status status="PASS" starttime="20230920 09:18:38.959" endtime="20230920 09:18:39.043"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>css=${pg_login.input_password}</arg>
+<arg>${password_admin}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:39.045" level="INFO">Typing password into text field 'css=input[name="password"][type="password"]'.</msg>
+<msg timestamp="20230920 09:18:39.081" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230920 09:18:39.141" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230920 09:18:39.044" endtime="20230920 09:18:39.141"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:38.958" endtime="20230920 09:18:39.141"/>
+</kw>
+<kw name="And clica no botão login" library="pg_Login">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=${pg_login.btn_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:39.143" level="INFO">Clicking element 'css=button[type="submit"]'.</msg>
+<status status="PASS" starttime="20230920 09:18:39.142" endtime="20230920 09:18:40.498"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:39.142" endtime="20230920 09:18:40.498"/>
+</kw>
+<kw name="Then o usuario realiza o login com sucesso" library="pg_Login">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=${pg_menus.menu_dashboard}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:40.498" endtime="20230920 09:18:41.001"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:40.498" endtime="20230920 09:18:41.001"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:38.485" endtime="20230920 09:18:41.001"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:38.484" endtime="20230920 09:18:41.001"/>
+</kw>
+<kw name="When ele acessar a tela de admin no sistema" library="pg_Adicionar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=${pg_menus.menu_admin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:41.003" level="INFO">Clicking element 'css=a[href="/web/index.php/admin/viewAdminModule"]'.</msg>
+<status status="PASS" starttime="20230920 09:18:41.002" endtime="20230920 09:18:42.435"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=${pg_userManagement.btn_add}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:42.435" endtime="20230920 09:18:42.933"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:41.002" endtime="20230920 09:18:42.933"/>
+</kw>
+<kw name="And clicar no botão &quot;+Add&quot;" library="pg_Adicionar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=${pg_userManagement.btn_add}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:42.935" level="INFO">Clicking element 'css=button[class="oxd-button oxd-button--medium oxd-button--secondary"]'.</msg>
+<status status="PASS" starttime="20230920 09:18:42.934" endtime="20230920 09:18:43.557"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>css=${pg_admin_add.btn_save}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:43.558" endtime="20230920 09:18:44.085"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:42.934" endtime="20230920 09:18:44.085"/>
+</kw>
+<kw name="And preencher os campos de forma inválida" library="pg_Adicionar">
+<kw name="Set Variable" library="BuiltIn">
+<var>${employN}</var>
+<arg>teste</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230920 09:18:44.086" level="INFO">${employN} = teste</msg>
+<status status="PASS" starttime="20230920 09:18:44.086" endtime="20230920 09:18:44.086"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${userName}</var>
+<arg>test</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230920 09:18:44.087" level="INFO">${userName} = test</msg>
+<status status="PASS" starttime="20230920 09:18:44.086" endtime="20230920 09:18:44.087"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${password}</var>
+<arg>teste</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230920 09:18:44.087" level="INFO">${password} = teste</msg>
+<status status="PASS" starttime="20230920 09:18:44.087" endtime="20230920 09:18:44.087"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css=${pg_admin_add.input_employeN}</arg>
+<arg>${employN}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:44.088" level="INFO">Typing text 'teste' into text field 'css=input[placeholder="Type for hints..."]'.</msg>
+<status status="PASS" starttime="20230920 09:18:44.087" endtime="20230920 09:18:44.195"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.input_userName}</arg>
+<arg>${userName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:44.196" level="INFO">Typing text 'test' into text field 'xpath=//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[1]/div/div[4]/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20230920 09:18:44.195" endtime="20230920 09:18:44.284"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.input_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:44.284" level="INFO">Typing password into text field 'xpath=//input[@type='password'][1]'.</msg>
+<msg timestamp="20230920 09:18:44.314" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230920 09:18:44.358" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230920 09:18:44.284" endtime="20230920 09:18:44.358"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.input_confirmPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:44.359" level="INFO">Typing password into text field 'xpath=//*[@id="app"]/div[1]/div[2]/div[2]/div/div/form/div[2]/div/div[2]/div/div[2]/input'.</msg>
+<msg timestamp="20230920 09:18:44.390" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230920 09:18:44.437" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230920 09:18:44.358" endtime="20230920 09:18:44.437"/>
+</kw>
+<kw name="When clicar no botão save" library="pg_Adicionar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=${pg_admin_add.btn_save}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:44.438" level="INFO">Clicking element 'css=button[type=submit][class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]'.</msg>
+<status status="PASS" starttime="20230920 09:18:44.438" endtime="20230920 09:18:44.471"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:44.437" endtime="20230920 09:18:44.472"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:44.086" endtime="20230920 09:18:44.472"/>
+</kw>
+<kw name="When clicar no botão save" library="pg_Adicionar">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>css=${pg_admin_add.btn_save}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230920 09:18:44.473" level="INFO">Clicking element 'css=button[type=submit][class="oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space"]'.</msg>
+<status status="PASS" starttime="20230920 09:18:44.472" endtime="20230920 09:18:44.501"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:44.472" endtime="20230920 09:18:44.501"/>
+</kw>
+<kw name="Then o sistema informa ao administrador que os campos estão inválidos" library="pg_Adicionar">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.alert_userRole}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:44.502" endtime="20230920 09:18:45.595"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.alert_employeeN}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:45.595" endtime="20230920 09:18:45.612"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.alert_status}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:45.612" endtime="20230920 09:18:45.631"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.alert_message_userName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:45.631" endtime="20230920 09:18:45.649"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${pg_admin_add.alert_password}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230920 09:18:45.649" endtime="20230920 09:18:45.667"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:44.502" endtime="20230920 09:18:45.667"/>
+</kw>
+<kw name="Fechar navegador" library="kw_base" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230920 09:18:45.820" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230920 09:18:45.668" endtime="20230920 09:18:45.820"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230920 09:18:45.820" endtime="20230920 09:18:48.017"/>
+</kw>
+<status status="PASS" starttime="20230920 09:18:45.667" endtime="20230920 09:18:48.017"/>
+</kw>
+<tag>add_inv</tag>
+<status status="PASS" starttime="20230920 09:18:33.688" endtime="20230920 09:18:48.018"/>
+</test>
+<doc>Functionality of adding users as administrator</doc>
+<status status="PASS" starttime="20230920 09:18:30.290" endtime="20230920 09:18:48.019"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">add_inv</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Adicionar">Adicionar</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
